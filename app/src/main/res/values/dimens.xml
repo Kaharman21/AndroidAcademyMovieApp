@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_margin">16dp</dimen>
+
+    <dimen name="activity_movie_details_middle_margin">16dp</dimen>
+    <dimen name="activity_movie_details_title_text_size">40sp</dimen>
+
+    <dimen name="activity_movie_details_favourite_width">16dp</dimen>
+    <dimen name="activity_movie_details_favourite_height">14dp</dimen>
+    <dimen name="activity_movie_details_favourite_top_margin">57dp</dimen>
+
+    <dimen name="activity_movie_details_back_img_width">6dp</dimen>
+    <dimen name="activity_movie_details_back_img_height">10dp</dimen>
+    <dimen name="activity_movie_details_back_img_margin_top">59dp</dimen>
+    <dimen name="activity_movie_details_back_img_margin_start">18dp</dimen>
+    <dimen name="activity_movie_details_back_text_size">14sp</dimen>
+    <dimen name="activity_movie_details_back_text_margin">8dp</dimen>
+
+    <dimen name="activity_movie_details_adult_text_size">14sp</dimen>
+    <dimen name="activity_movie_details_adult_margin_top">226dp</dimen>
+    <dimen name="activity_movie_details_adult_margin_start">16dp</dimen>
+
+    <dimen name="activity_movie_details_storyline_text_margin_top">4dp</dimen>
+    <dimen name="activity_movie_details_storyline_title_margin_top">28dp</dimen>
+
+    <dimen name="activity_movie_details_actor_name_text_size">12sp</dimen>
+    <dimen name="activity_movie_details_actor_photo_top_margin">7dp</dimen>
+    <dimen name="activity_movie_details_cast_top_margin">24dp</dimen>
+
+    <dimen name="activity_movie_details_start_margin_top">8dp</dimen>
+    <dimen name="activity_movie_details_start_margin_start">3dp</dimen>
+
+
+</resources>
