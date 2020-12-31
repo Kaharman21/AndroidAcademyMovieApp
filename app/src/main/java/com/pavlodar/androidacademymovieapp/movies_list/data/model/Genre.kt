@@ -1,4 +1,3 @@
 package com.pavlodar.androidacademymovieapp.movies_list.data.model
 
-class Genre {
-}
+data class Genre(val id: Int, val name: String)

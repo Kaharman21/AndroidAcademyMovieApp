@@ -45,7 +45,7 @@
         android:layout_height="@dimen/activity_movie_details_favourite_height"
         android:layout_marginTop="@dimen/activity_movie_details_favourite_top_margin"
         android:layout_marginEnd="@dimen/activity_movie_details_middle_margin"
-        android:src="@drawable/favourite_activity_movie_details"
+        android:src="@drawable/ic_favorite_filed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -216,129 +216,139 @@
         app:layout_constraintTop_toTopOf="@+id/activity_movie_details_cast_title"
         />
 
-    <ImageView
-        android:id="@+id/activity_movie_details_first_actor_photo"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_movies_details_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_movie_details_actor_photo_top_margin"
-        android:src="@drawable/robert_downey"
-        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_second_actor_photo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_cast_title"
         />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_first_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="activity_movie_details_first_actor_photo"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/activity_movie_details_first_actor_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/activity_movie_details_actor_photo_top_margin"-->
+<!--        android:src="@drawable/robert_downey"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_second_actor_photo"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_cast_title"-->
+<!--        />-->
 
-    <ImageView
-        android:id="@+id/activity_movie_details_second_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chris_evans"
-        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_third_actor_photo"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_first_actor_photo"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_first_actor_photo"
-        />
+<!--    <androidx.constraintlayout.widget.Barrier-->
+<!--        android:id="@+id/barrier_first_actor_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:barrierDirection="end"-->
+<!--        app:constraint_referenced_ids="activity_movie_details_first_actor_photo"-->
+<!--        />-->
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_second_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="activity_movie_details_second_actor_photo"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/activity_movie_details_second_actor_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/chris_evans"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_third_actor_photo"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_first_actor_photo"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_first_actor_photo"-->
+<!--        />-->
 
-    <ImageView
-        android:id="@+id/activity_movie_details_third_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/mark_ruffalo"
-        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_fourth_actor_photo"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_second_actor_photo"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_second_actor_photo"
-        />
+<!--    <androidx.constraintlayout.widget.Barrier-->
+<!--        android:id="@+id/barrier_second_actor_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:barrierDirection="end"-->
+<!--        app:constraint_referenced_ids="activity_movie_details_second_actor_photo"-->
+<!--        />-->
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_third_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="activity_movie_details_third_actor_photo"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/activity_movie_details_third_actor_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/mark_ruffalo"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_fourth_actor_photo"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_second_actor_photo"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_second_actor_photo"-->
+<!--        />-->
 
-    <ImageView
-        android:id="@+id/activity_movie_details_fourth_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chris_hemsworth"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_third_actor_photo"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_third_actor_photo"
-        />
+<!--    <androidx.constraintlayout.widget.Barrier-->
+<!--        android:id="@+id/barrier_third_actor_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:barrierDirection="end"-->
+<!--        app:constraint_referenced_ids="activity_movie_details_third_actor_photo"-->
+<!--        />-->
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_fourth_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="activity_movie_details_fourth_actor_photo"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/activity_movie_details_fourth_actor_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/chris_hemsworth"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_third_actor_photo"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_third_actor_photo"-->
+<!--        />-->
 
-    <TextView
-        android:id="@+id/activity_movie_details_first_actor_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_first_actor_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_actor_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/barrier_first_actor_photo"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_first_actor_photo"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_first_actor_photo"
-        />
+<!--    <androidx.constraintlayout.widget.Barrier-->
+<!--        android:id="@+id/barrier_fourth_actor_photo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:barrierDirection="end"-->
+<!--        app:constraint_referenced_ids="activity_movie_details_fourth_actor_photo"-->
+<!--        />-->
 
-    <TextView
-        android:id="@+id/activity_movie_details_second_actor_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_second_actor_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_actor_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/barrier_second_actor_photo"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_second_actor_photo"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_second_actor_photo"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/activity_movie_details_first_actor_name"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/activity_movie_details_first_actor_name"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="@dimen/activity_movie_details_actor_name_text_size"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/barrier_first_actor_photo"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_first_actor_photo"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_first_actor_photo"-->
+<!--        />-->
 
-    <TextView
-        android:id="@+id/activity_movie_details_third_actor_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_third_actor_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_actor_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/barrier_third_actor_photo"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_third_actor_photo"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_third_actor_photo"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/activity_movie_details_second_actor_name"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/activity_movie_details_second_actor_name"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="@dimen/activity_movie_details_actor_name_text_size"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/barrier_second_actor_photo"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_second_actor_photo"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_second_actor_photo"-->
+<!--        />-->
 
-    <TextView
-        android:id="@+id/activity_movie_details_fourth_actor_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_fourth_actor_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_actor_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/barrier_fourth_actor_photo"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_fourth_actor_photo"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_fourth_actor_photo"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/activity_movie_details_third_actor_name"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/activity_movie_details_third_actor_name"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="@dimen/activity_movie_details_actor_name_text_size"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/barrier_third_actor_photo"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_third_actor_photo"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_third_actor_photo"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/activity_movie_details_fourth_actor_name"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/activity_movie_details_fourth_actor_name"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="@dimen/activity_movie_details_actor_name_text_size"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/barrier_fourth_actor_photo"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_fourth_actor_photo"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_fourth_actor_photo"-->
+<!--        />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

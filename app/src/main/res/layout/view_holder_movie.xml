@@ -1,6 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="170dp"
+    android:layout_height="296dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_film_item"
+    card_view:cardCornerRadius="10dp"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_movies_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fragment_movies_list_item_bg"
+        >
+
+        <ImageView
+            android:id="@+id/fragment_movies_list_poster"
+            android:layout_width="match_parent"
+            android:layout_height="248dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avengers_movie"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/fragment_movies_list_poster_mask"
+            android:layout_width="match_parent"
+            android:layout_height="248dp"
+            android:scaleType="center"
+            android:src="@drawable/fragment_movies_list_mask"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/fragment_movies_list_minimum_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_fragment_movies_list_age_restrictions"
+            android:padding="4dp"
+            android:text="13+"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/fragment_movies_list_favorite"
+            android:layout_width="@dimen/activity_movie_details_favourite_width"
+            android:layout_height="@dimen/activity_movie_details_favourite_height"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/ic_favorite_empty"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/fragment_movies_list_movie_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="4dp"
+            android:text="Action, Adventure, Drama"
+            android:textColor="@color/activity_movie_details_genre_color"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_movies_list_rating"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <RatingBar
+            android:id="@+id/fragment_movies_list_rating"
+            style="@style/MyRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="8dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="10dp"
+            android:numStars="5"
+            android:rating="2"
+            android:stepSize="0.5"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_movies_list_poster"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/fragment_movies_list_reviews_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="@color/activity_movie_details_back_text_color"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_movies_list_rating"
+            app:layout_constraintStart_toEndOf="@+id/fragment_movies_list_rating"
+            app:layout_constraintTop_toTopOf="@+id/fragment_movies_list_rating"
+            tools:text="125 REVIEWS"
+            />
+
+        <TextView
+            android:id="@+id/fragment_movies_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Avengers: End Game"
+            android:textColor="@color/fragment_movies_list_title_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_movies_list_runtime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_movies_list_poster"
+            />
+
+        <TextView
+            android:id="@+id/fragment_movies_list_runtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="137 min"
+            android:textColor="@color/fragment_movies_list_film_time"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_movies_list_title"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

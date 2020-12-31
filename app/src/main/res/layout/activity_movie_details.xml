@@ -46,7 +46,7 @@
         android:layout_height="@dimen/activity_movie_details_favourite_height"
         android:layout_marginTop="@dimen/activity_movie_details_favourite_top_margin"
         android:layout_marginEnd="@dimen/activity_movie_details_middle_margin"
-        android:src="@drawable/favourite_activity_movie_details"
+        android:src="@drawable/ic_favorite_filed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
