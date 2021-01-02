@@ -8,8 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="activity_movie_details_background">#191926</color>
-    <color name="activity_movie_details_back_text_color">#6D6D80</color>
-    <color name="activity_movie_details_genre_color">#FF3466</color>
+    <color name="fragment_movies_details_back_text_color">#6D6D80</color>
+    <color name="fragment_movies_details_genre_color">#FF3466</color>
 
     <color name="fragment_movies_list_title_color">#ECECEC</color>
     <color name="fragment_movies_list_film_time">#565665</color>

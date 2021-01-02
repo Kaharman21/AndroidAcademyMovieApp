@@ -24,18 +24,18 @@ class FragmentMoviesList: BaseFragment(R.layout.fragment_movies_list), OnItemCli
     private var adapter = MoviesListAdapter(this)
     private var moviesData: List<Movie>? = null
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        initViews()
+        recyclerView = view.findViewById(R.id.fragment_movies_list_recycler_view)
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        recyclerView.adapter = adapter
+
         moviesMockData()
     }
 
-    private fun initViews() {
-        recyclerView = mRootView.findViewById(R.id.fragment_movies_list_recycler_view)
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
-    //    recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = adapter
+    override fun onMovieItemClick() {
+        goToFragmentMoviesDetails()
     }
 
     private fun moviesMockData(){
@@ -65,16 +65,11 @@ class FragmentMoviesList: BaseFragment(R.layout.fragment_movies_list), OnItemCli
     }
 
     private fun goToFragmentMoviesDetails() {
-            fragmentManager?.beginTransaction()
-                ?.addToBackStack(null)
-                ?.replace(
-                    R.id.main_activity_container,
-                    FragmentMoviesDetails()
-                )?.commit()
+        fragmentManager?.beginTransaction()
+            ?.addToBackStack(null)
+            ?.replace(
+                R.id.main_activity_container,
+                FragmentMoviesDetails()
+            )?.commit()
     }
-
-    override fun onMovieItemClick() {
-        goToFragmentMoviesDetails()
-    }
-
 }

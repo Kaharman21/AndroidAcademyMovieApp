@@ -31,10 +31,6 @@ class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
         adapter.setData(actorList)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     private fun actorMockData() {
         actorList = listOf(
             Actor(1, "Hero-mero", ""),
