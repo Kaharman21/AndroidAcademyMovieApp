@@ -1,34 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="app_margin">16dp</dimen>
+    <dimen name="fragment_movies_details_cast_start_margin">16dp</dimen>
+    <dimen name="fragment_movies_details_middle_margin">16dp</dimen>
+    <dimen name="fragment_movies_details_title_text_size">40sp</dimen>
+    <dimen name="fragment_movies_details_favourite_top_margin">57dp</dimen>
+    <dimen name="fragment_movies_details_back_img_width">6dp</dimen>
+    <dimen name="fragment_movies_details_back_img_height">10dp</dimen>
+    <dimen name="fragment_movies_details_back_img_top_margin">59dp</dimen>
+    <dimen name="fragment_movies_details_back_img_start_margin">18dp</dimen>
+    <dimen name="fragment_movies_details_back_text_size">14sp</dimen>
+    <dimen name="fragment_movies_details_back_text_margin">8dp</dimen>
+    <dimen name="fragment_movies_details_adult_text_size">14sp</dimen>
+    <dimen name="fragment_movies_details_adult_top_margin">226dp</dimen>
+    <dimen name="fragment_movies_details_storyline_text_top_margin">4dp</dimen>
+    <dimen name="fragment_movies_details_storyline_title_top_margin">28dp</dimen>
+    <dimen name="fragment_movies_details_cast_top_margin">24dp</dimen>
+    <dimen name="fragment_movies_details_top_margin">8dp</dimen>
+    <dimen name="fragment_movies_details_start_margin">3dp</dimen>
 
-    <dimen name="activity_movie_details_middle_margin">16dp</dimen>
-    <dimen name="activity_movie_details_title_text_size">40sp</dimen>
-
-    <dimen name="activity_movie_details_favourite_width">16dp</dimen>
-    <dimen name="activity_movie_details_favourite_height">14dp</dimen>
-    <dimen name="activity_movie_details_favourite_top_margin">57dp</dimen>
-
-    <dimen name="activity_movie_details_back_img_width">6dp</dimen>
-    <dimen name="activity_movie_details_back_img_height">10dp</dimen>
-    <dimen name="activity_movie_details_back_img_margin_top">59dp</dimen>
-    <dimen name="activity_movie_details_back_img_margin_start">18dp</dimen>
-    <dimen name="activity_movie_details_back_text_size">14sp</dimen>
-    <dimen name="activity_movie_details_back_text_margin">8dp</dimen>
-
-    <dimen name="activity_movie_details_adult_text_size">14sp</dimen>
-    <dimen name="activity_movie_details_adult_margin_top">226dp</dimen>
-    <dimen name="activity_movie_details_adult_margin_start">16dp</dimen>
-
-    <dimen name="activity_movie_details_storyline_text_margin_top">4dp</dimen>
-    <dimen name="activity_movie_details_storyline_title_margin_top">28dp</dimen>
+    <dimen name="fragment_movies_list_image_start_margin">16dp</dimen>
+    <dimen name="fragment_movies_list_title_top_margin">55dp</dimen>
+    <dimen name="fragment_movies_list_title_text_size">14sp</dimen>
+    <dimen name="fragment_movies_list_title_start_margin">40dp</dimen>
+    <dimen name="fragment_movies_list_recycler_view_top_margin">108dp</dimen>
 
     <dimen name="activity_movie_details_actor_name_text_size">12sp</dimen>
-    <dimen name="activity_movie_details_actor_photo_top_margin">7dp</dimen>
-    <dimen name="activity_movie_details_cast_top_margin">24dp</dimen>
+    <dimen name="activity_movie_details_adult_start_margin">16dp</dimen>
 
-    <dimen name="activity_movie_details_start_margin_top">8dp</dimen>
-    <dimen name="activity_movie_details_start_margin_start">3dp</dimen>
+    <dimen name="view_holder_actor_photo_size">80dp</dimen>
+    <dimen name="view_holder_actor_photo_top_margin">7dp</dimen>
+    <dimen name="view_holder_actor_layout_horizontal_margin">8dp</dimen>
 
+    <dimen name="view_holder_movie_card_view_width">170dp</dimen>
+    <dimen name="view_holder_movie_card_view_height">296dp</dimen>
+    <dimen name="view_holder_movie_card_view_start_margin">15dp</dimen>
+    <dimen name="view_holder_movie_card_view_bottom_margin">10dp</dimen>
+    <dimen name="view_holder_movie_card_view_corner_radius">10dp</dimen>
+    <dimen name="view_holder_movie_poster_height">248dp</dimen>
+    <dimen name="view_holder_movie_minimum_age_padding">4dp</dimen>
+    <dimen name="view_holder_movie_minimum_age_text_size">12sp</dimen>
+    <dimen name="view_holder_movie_minimum_age_start_margin">6dp</dimen>
+    <dimen name="view_holder_movie_minimum_age_top_margin">12dp</dimen>
+    <dimen name="view_holder_movie_favorite_top_margin">13dp</dimen>
+    <dimen name="view_holder_movie_favorite_end_margin">6dp</dimen>
+    <dimen name="view_holder_movie_genre_start_margin">6dp</dimen>
+    <dimen name="view_holder_movie_genre_bottom_margin">4dp</dimen>
+    <dimen name="view_holder_movie_genre_text_size">8sp</dimen>
+    <dimen name="view_holder_movie_rating_height">8dp</dimen>
+    <dimen name="view_holder_movie_rating_start_margin">6dp</dimen>
+    <dimen name="view_holder_movie_rating_bottom_margin">10dp</dimen>
+    <dimen name="view_holder_movie_reviews_number_start_margin">6dp</dimen>
+    <dimen name="view_holder_movie_reviews_number_text_size">8sp</dimen>
+    <dimen name="view_holder_movie_title_start_margin">8dp</dimen>
+    <dimen name="view_holder_movie_title_text_size">14sp</dimen>
+    <dimen name="view_holder_movie_runtime_text_size">8sp</dimen>
+    <dimen name="view_holder_movie_runtime_start_margin">8dp</dimen>
+
+    <dimen name="bg_film_item_radius">80dp</dimen>
+    <dimen name="favourite_image_width">16dp</dimen>
+    <dimen name="favourite_image_height">14dp</dimen>
 
 </resources>

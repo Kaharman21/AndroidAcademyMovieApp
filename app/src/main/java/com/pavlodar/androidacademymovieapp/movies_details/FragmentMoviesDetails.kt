@@ -5,18 +5,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
+import com.pavlodar.androidacademymovieapp.common.presentation.view.BaseFragment
+import com.pavlodar.androidacademymovieapp.movies_details.presentation.view.MoviesDetailsAdapter
+import com.pavlodar.androidacademymovieapp.movies_list.data.model.Actor
 
-class FragmentMoviesDetails: Fragment() {
+class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
 
-    private lateinit var mRootView: View
+    private lateinit var recyclerView: RecyclerView
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        mRootView = inflater.inflate(R.layout.fragment_movies_details, container, false)
-        return mRootView
+    private var adapter: MoviesDetailsAdapter = MoviesDetailsAdapter()
+    private var actorList: List<Actor> = listOf()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        actorMockData()
+
+        recyclerView = view.findViewById(R.id.fragment_movies_details_recycler_view)
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = adapter
+        adapter.setData(actorList)
+    }
+
+    private fun actorMockData() {
+        actorList = listOf(
+            Actor(1, "Hero-mero", ""),
+            Actor(2, "sssss", ""),
+            Actor(2, "sssss", ""),
+            Actor(2, "sssss", ""),
+            Actor(2, "sssss", "")
+        )
     }
 }
