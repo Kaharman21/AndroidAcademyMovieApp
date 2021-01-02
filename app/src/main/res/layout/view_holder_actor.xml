@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="80dp"
     android:layout_height="wrap_content"
     android:background="@color/activity_movie_details_background"
     android:orientation="vertical"
+    android:layout_marginHorizontal="8dp"
     >
 
     <ImageView
-        android:id="@+id/activity_movie_details_first_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/view_holder_actor_photo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="@dimen/activity_movie_details_actor_photo_top_margin"
-        android:src="@drawable/robert_downey"
+        android:src="@drawable/chris_hemsworth"
         />
 
     <TextView
-        android:id="@+id/activity_movie_details_first_actor_name"
+        android:id="@+id/view_holder_actor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/activity_movie_details_first_actor_name"

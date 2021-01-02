@@ -12,7 +12,7 @@ import com.pavlodar.androidacademymovieapp.common.presentation.view.BaseFragment
 import com.pavlodar.androidacademymovieapp.movies_details.presentation.view.MoviesDetailsAdapter
 import com.pavlodar.androidacademymovieapp.movies_list.data.model.Actor
 
-class FragmentMoviesDetails: BaseFragment(R.layout.fragment_movies_details) {
+class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
 
     private lateinit var recyclerView: RecyclerView
 
@@ -22,12 +22,26 @@ class FragmentMoviesDetails: BaseFragment(R.layout.fragment_movies_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        actorMockData()
+
         recyclerView = view.findViewById(R.id.fragment_movies_details_recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = adapter
+        adapter.setData(actorList)
     }
 
     override fun onResume() {
         super.onResume()
+    }
+
+    private fun actorMockData() {
+        actorList = listOf(
+            Actor(1, "Hero-mero", ""),
+            Actor(2, "sssss", ""),
+            Actor(2, "sssss", ""),
+            Actor(2, "sssss", ""),
+            Actor(2, "sssss", "")
+        )
     }
 }
