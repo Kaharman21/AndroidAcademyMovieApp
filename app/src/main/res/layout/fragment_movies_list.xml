@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="170dp"
+    android:layout_height="296dp">
+
+    <ImageView
+        android:id="@+id/fragment_movies_list_poster"
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:scaleType="center"
+        android:src="@drawable/background_activity_movie_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/fragment_movies_list_film_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Action, Adventure, Drama"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_movies_list_rating"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <RatingBar
+        android:id="@+id/fragment_movies_list_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        android:numStars="5"
+        android:rating="2"
+        android:stepSize="0.5"
+        style="@style/MyRatingBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_movies_list_poster"
+        />
+
+    <TextView
+        android:id="@+id/fragment_movies_list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avengers: End Game"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_list_poster"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_movies_list_time"
+        />
+
+    <TextView
+        android:id="@+id/fragment_movies_list_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="137 min"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_list_title"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

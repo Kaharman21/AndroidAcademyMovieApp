@@ -122,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_movie_details_start_margin_top"
-            android:src="@drawable/ic_star_icon_filed"
+            android:src="@drawable/ic_star_filed"
             app:layout_constraintStart_toStartOf="@+id/activity_movie_details_movie_genre"
             app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_movie_genre"
             />
@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_movie_details_start_margin_start"
-            android:src="@drawable/ic_star_icon_filed"
+            android:src="@drawable/ic_star_filed"
             app:layout_constraintStart_toEndOf="@+id/activity_movie_details_filed_star1"
             app:layout_constraintTop_toTopOf="@+id/activity_movie_details_filed_star1"
             />
@@ -142,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_movie_details_start_margin_start"
-            android:src="@drawable/ic_star_icon_filed"
+            android:src="@drawable/ic_star_filed"
             app:layout_constraintStart_toEndOf="@+id/activity_movie_details_filed_star2"
             app:layout_constraintTop_toTopOf="@+id/activity_movie_details_filed_star2"
             />
@@ -152,7 +152,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_movie_details_start_margin_start"
-            android:src="@drawable/ic_star_icon_filed"
+            android:src="@drawable/ic_star_filed"
             app:layout_constraintStart_toEndOf="@+id/activity_movie_details_filed_star3"
             app:layout_constraintTop_toTopOf="@+id/activity_movie_details_filed_star3"
             />
@@ -162,7 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_movie_details_start_margin_start"
-            android:src="@drawable/ic_star_icon_empty"
+            android:src="@drawable/ic_star_empty"
             app:layout_constraintStart_toEndOf="@+id/activity_movie_details_filed_star4"
             app:layout_constraintTop_toTopOf="@+id/activity_movie_details_filed_star4"
             />
