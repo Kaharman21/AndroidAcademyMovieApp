@@ -14,12 +14,18 @@
         <!-- Customize your theme here. -->
     </style>
 
-
-    <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
-<!--        <item name="colorControlNormal">@android:color/holo_green_light</item>-->
-<!--        <item name="colorControlActivated">@android:color/holo_orange_dark</item>-->
+    <style name="MyRatingBarForList" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/custom_ratingbar</item>
         <item name="minHeight">13dip</item>
         <item name="maxHeight">13dip</item>
     </style>
+
+    <style name="MyRatingBarForDetails" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_ratingbar</item>
+        <item name="minHeight">13dip</item>
+        <item name="maxHeight">13dip</item>
+    </style>
+
+
+
 </resources>

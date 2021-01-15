@@ -3,14 +3,14 @@ package com.pavlodar.androidacademymovieapp.movies_list.data.model
 data class Movie(
     val id: Int,
     val title: String,
-    val overview: String,
-    val poster: String,
-    val backdrop: String,
-    val ratings: Float,
-    val numberOfRatings: Int,
-    val minimumAge: Int,
-    val runtime: Int,
+    val storyLine: String,
+    val imageUrl: String,
+    val detailImageUrl: String,
+    val rating: Int,
+    val reviewCount: Int,
+    val pgAge: Int,
+    val runningTime: Int,
     val genres: List<Genre>,
-    val actors: List<Actor>
-
+    val actors: List<Actor>,
+    val isLiked: Boolean
 )

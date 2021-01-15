@@ -82,7 +82,7 @@
 
         <RatingBar
             android:id="@+id/fragment_movies_list_rating"
-            style="@style/MyRatingBar"
+            style="@style/MyRatingBarForList"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/view_holder_movie_rating_height"
             android:layout_marginStart="@dimen/view_holder_movie_rating_start_margin"

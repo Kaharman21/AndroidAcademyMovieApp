@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
 
         initViews()
 
-        supportFragmentManager.beginTransaction().replace(R.id.main_activity_container, FragmentMoviesList()).commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_activity_container, FragmentMoviesList(this)).commit()
     }
 
     private fun initViews() {
