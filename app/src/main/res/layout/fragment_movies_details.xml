@@ -114,68 +114,17 @@
         />
 
     <RatingBar
-        android:id="@+id/fragment_movies_list_rating"
+        android:id="@+id/fragment_movies_details_rating"
         style="@style/MyRatingBarForDetails"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/view_holder_movie_rating_height"
-        android:layout_marginTop="@dimen/fragment_movies_details_top_margin"
+        android:layout_height="@dimen/fragment_movies_details_rating_height"
+        android:layout_marginTop="8dp"
         android:numStars="5"
         android:rating="2"
         android:stepSize="0.5"
         app:layout_constraintStart_toStartOf="@+id/fragment_movies_details_movie_genre"
         app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_movie_genre"
         />
-
-    <ImageView
-        android:id="@+id/fragment_movies_details_filed_star1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_movies_details_top_margin"
-        android:src="@drawable/ic_star_filed1"
-        app:layout_constraintStart_toStartOf="@+id/fragment_movies_details_movie_genre"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_movie_genre"
-        />
-
-    <ImageView
-        android:id="@+id/fragment_movies_details_filed_star2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_movies_details_start_margin"
-        android:src="@drawable/ic_star_filed1"
-        app:layout_constraintStart_toEndOf="@+id/fragment_movies_details_filed_star1"
-        app:layout_constraintTop_toTopOf="@+id/fragment_movies_details_filed_star1"
-        />
-
-    <ImageView
-        android:id="@+id/fragment_movies_details_filed_star3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_movies_details_start_margin"
-        android:src="@drawable/ic_star_filed1"
-        app:layout_constraintStart_toEndOf="@+id/fragment_movies_details_filed_star2"
-        app:layout_constraintTop_toTopOf="@+id/fragment_movies_details_filed_star2"
-        />
-
-    <ImageView
-        android:id="@+id/fragment_movies_details_filed_star4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_movies_details_start_margin"
-        android:src="@drawable/ic_star_filed1"
-        app:layout_constraintStart_toEndOf="@+id/fragment_movies_details_filed_star3"
-        app:layout_constraintTop_toTopOf="@+id/fragment_movies_details_filed_star3"
-        />
-
-    <ImageView
-        android:id="@+id/fragment_movies_details_empty_star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_movies_details_start_margin"
-        android:src="@drawable/ic_star_empty1"
-        app:layout_constraintStart_toEndOf="@+id/fragment_movies_details_filed_star4"
-        app:layout_constraintTop_toTopOf="@+id/fragment_movies_details_filed_star4"
-        />
-
 
     <TextView
         android:id="@+id/fragment_movies_details_storyline_title"
@@ -187,7 +136,7 @@
         android:textSize="@dimen/fragment_movies_details_adult_text_size"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/fragment_movies_details_movie_title"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_filed_star1"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_rating"
         />
 
     <TextView

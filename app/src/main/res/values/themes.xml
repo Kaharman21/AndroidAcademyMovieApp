@@ -15,13 +15,13 @@
     </style>
 
     <style name="MyRatingBarForList" parent="@android:style/Widget.RatingBar">
-        <item name="android:progressDrawable">@drawable/custom_ratingbar</item>
+        <item name="android:progressDrawable">@drawable/custom_ratingbar_for_list</item>
         <item name="minHeight">13dip</item>
         <item name="maxHeight">13dip</item>
     </style>
 
     <style name="MyRatingBarForDetails" parent="@android:style/Widget.RatingBar">
-        <item name="android:progressDrawable">@drawable/custom_ratingbar</item>
+        <item name="android:progressDrawable">@drawable/custom_ratingbar_for_details</item>
         <item name="minHeight">13dip</item>
         <item name="maxHeight">13dip</item>
     </style>
