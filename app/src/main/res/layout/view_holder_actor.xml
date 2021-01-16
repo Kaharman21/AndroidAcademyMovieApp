@@ -14,6 +14,7 @@
         android:layout_width="@dimen/view_holder_actor_photo_size"
         android:layout_height="@dimen/view_holder_actor_photo_size"
         android:layout_marginTop="@dimen/view_holder_actor_photo_top_margin"
+        android:scaleType="centerCrop"
         android:src="@drawable/chris_hemsworth"
         />
 
