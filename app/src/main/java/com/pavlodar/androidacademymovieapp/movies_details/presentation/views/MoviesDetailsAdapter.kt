@@ -1,11 +1,10 @@
-package com.pavlodar.androidacademymovieapp.movies_details.presentation.view
+package com.pavlodar.androidacademymovieapp.movies_details.presentation.views
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
-import com.pavlodar.androidacademymovieapp.movies_list.data.model.Actor
-import com.pavlodar.androidacademymovieapp.movies_list.presentatin.view.MoviesListViewHolder
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.Actor
 
 class MoviesDetailsAdapter: RecyclerView.Adapter<MoviesDetailsViewHolder>() {
 

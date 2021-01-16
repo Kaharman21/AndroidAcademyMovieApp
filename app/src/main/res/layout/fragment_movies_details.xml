@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/fragment_movies_details_background_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:scaleType="centerCrop"
         android:src="@drawable/background_fragment_movies_details"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
     <ImageView
         android:id="@+id/fragment_movies_details_mask"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:scaleType="centerCrop"
         android:src="@drawable/mask_fragment_movies_details"
         app:layout_constraintEnd_toEndOf="parent"

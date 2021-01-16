@@ -1,19 +1,22 @@
-package com.pavlodar.androidacademymovieapp.movies_list.presentatin.view
+package com.pavlodar.androidacademymovieapp.movies_list.presentatin.views
 
+import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.bumptech.glide.Glide
 import com.pavlodar.androidacademymovieapp.R
-import com.pavlodar.androidacademymovieapp.movies_details.FragmentMoviesDetails
-import com.pavlodar.androidacademymovieapp.movies_list.data.model.Movie
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
 import java.lang.StringBuilder
+import kotlin.math.roundToInt
 
 class MoviesListViewHolder(
     view: View,
-    private val action: OnItemClickListener
+    private val action: OnItemClickListener,
+    private var context: Context
 ) : RecyclerView.ViewHolder(view) {
 
     private val movieItem: View = view.findViewById(R.id.fragment_movies_list)
@@ -28,9 +31,16 @@ class MoviesListViewHolder(
     private val movieRuntime: TextView = view.findViewById(R.id.fragment_movies_list_runtime)
 
     fun onBind(movieData: Movie) {
-        moviePoster.load(movieData.imageUrl){
-            placeholder(R.drawable.avengers_movie)
-        }
+//        moviePoster.load(movieData.imageUrl){
+//            placeholder(R.drawable.avengers_movie)
+//        }
+
+        Glide.with(context)
+            .load(movieData.imageUrl)
+            .into(moviePoster)
+
+
+
         minimumAge.text = "${movieData.pgAge}+"
         movieRating.rating = movieData.rating.toFloat()
         reviewsNumber.text = movieData.reviewCount.toString()
@@ -53,16 +63,22 @@ class MoviesListViewHolder(
         }
         movieGenre.text = st
 
-        setupListeners()
+        setupListeners(movieId = movieData.id, movieData)
     }
 
-    private fun setupListeners() {
+    private fun handleRating(voteAverage: Float): Int{
+        val rating = (voteAverage / 2).roundToInt()
+
+        return rating
+    }
+
+    private fun setupListeners(movieId: Int, movie: Movie) {
         movieItem.setOnClickListener {
-            action.onMovieItemClick()
+            action.onMovieItemClick(movieId = movieId, movie = movie)
         }
     }
 }
 
 interface OnItemClickListener {
-    fun onMovieItemClick()
+    fun onMovieItemClick(movieId: Int, movie: Movie)
 }

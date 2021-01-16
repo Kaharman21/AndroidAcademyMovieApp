@@ -1,4 +1,4 @@
-package com.pavlodar.androidacademymovieapp.common.presentation.view
+package com.pavlodar.androidacademymovieapp.common.presentation.views
 
 import android.os.Bundle
 import android.view.LayoutInflater

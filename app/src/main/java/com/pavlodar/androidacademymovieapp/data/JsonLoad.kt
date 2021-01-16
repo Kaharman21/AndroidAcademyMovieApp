@@ -1,9 +1,12 @@
 package com.pavlodar.androidacademymovieapp.data
 
 import android.content.Context
-import com.pavlodar.androidacademymovieapp.movies_list.data.model.Actor
-import com.pavlodar.androidacademymovieapp.movies_list.data.model.Genre
-import com.pavlodar.androidacademymovieapp.movies_list.data.model.Movie
+import com.pavlodar.androidacademymovieapp.data.models.JsonActor
+import com.pavlodar.androidacademymovieapp.data.models.JsonGenre
+import com.pavlodar.androidacademymovieapp.data.models.JsonMovie
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.Actor
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.Genre
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString

@@ -1,21 +1,25 @@
-package com.pavlodar.androidacademymovieapp.movies_list.presentatin.view
+package com.pavlodar.androidacademymovieapp.movies_list.presentatin.views
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
-import com.pavlodar.androidacademymovieapp.movies_list.data.model.Movie
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
 
 class MoviesListAdapter(
-    var clickListener: OnItemClickListener
+    var clickListener: OnItemClickListener,
+    private val context: Context
 ) : RecyclerView.Adapter<MoviesListViewHolder>() {
 
     private val moviesList: MutableList<Movie> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesListViewHolder {
         var inflater = LayoutInflater.from(parent.context)
-        return MoviesListViewHolder(inflater.inflate(R.layout.view_holder_movie, parent, false),
-            clickListener
+        return MoviesListViewHolder(
+            view = inflater.inflate(R.layout.view_holder_movie, parent, false),
+            action = clickListener,
+            context = parent.context
         )
     }
 

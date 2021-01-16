@@ -1,4 +1,4 @@
-package com.pavlodar.androidacademymovieapp.data
+package com.pavlodar.androidacademymovieapp.data.models
 
 import kotlinx.serialization.Serializable
 
