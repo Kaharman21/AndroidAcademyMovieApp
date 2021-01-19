@@ -31,13 +31,13 @@ class MoviesListViewHolder(
     private val movieRuntime: TextView = view.findViewById(R.id.fragment_movies_list_runtime)
 
     fun onBind(movieData: Movie) {
-//        moviePoster.load(movieData.imageUrl){
-//            placeholder(R.drawable.avengers_movie)
-//        }
+        moviePoster.load(movieData.imageUrl){
+            placeholder(R.drawable.avengers_movie)
+        }
 
-        Glide.with(context)
-            .load(movieData.imageUrl)
-            .into(moviePoster)
+//        Glide.with(context)
+//            .load(movieData.imageUrl)
+//            .into(moviePoster)
 
 
 
