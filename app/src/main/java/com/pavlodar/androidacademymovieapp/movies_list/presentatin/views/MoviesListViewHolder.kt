@@ -39,8 +39,6 @@ class MoviesListViewHolder(
 //            .load(movieData.imageUrl)
 //            .into(moviePoster)
 
-
-
         minimumAge.text = "${movieData.pgAge}+"
         movieRating.rating = movieData.rating.toFloat()
         reviewsNumber.text = movieData.reviewCount.toString()

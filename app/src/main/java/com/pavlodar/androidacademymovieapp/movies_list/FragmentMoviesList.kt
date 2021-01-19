@@ -1,8 +1,13 @@
 package com.pavlodar.androidacademymovieapp.movies_list
 
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
@@ -12,6 +17,7 @@ import com.pavlodar.androidacademymovieapp.movies_details.FragmentMoviesDetails
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.Actor
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.Genre
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
+import com.pavlodar.androidacademymovieapp.movies_list.presentatin.view_model.MovieListViewModel
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.MoviesListAdapter
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.OnItemClickListener
 import kotlinx.coroutines.*
@@ -20,7 +26,8 @@ import kotlin.coroutines.CoroutineContext
 class FragmentMoviesList(private val mainActivityContext: Context) :
     BaseFragment(R.layout.fragment_movies_list),
     OnItemClickListener,
-    CoroutineScope{
+    CoroutineScope,
+    LifecycleOwner {
 
 //   private val coroutineScope = CoroutineScope(Dispatchers.Default + Job())
 
@@ -32,6 +39,7 @@ class FragmentMoviesList(private val mainActivityContext: Context) :
 
     private var adapter = MoviesListAdapter(this, mainActivityContext)
     private var moviesData: List<Movie>? = null
+    private val viewModel: MovieListViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,18 +49,19 @@ class FragmentMoviesList(private val mainActivityContext: Context) :
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = adapter
 
-        loadData()
+        initViewModel()
     }
 
     override fun onMovieItemClick(movieId: Int, movie: Movie) {
         goToFragmentMoviesDetails(movieId, movie)
     }
 
-    private fun loadData() {
-        launch {
-            moviesData = loadMovies(mainActivityContext)
-            adapter.setData(moviesData ?: moviesMockData())
-        }
+    private fun initViewModel() {
+        viewModel.getMovieList().observe(this.viewLifecycleOwner, ::loadData)
+    }
+
+    private fun loadData(movieList: List<Movie>) {
+        adapter.setData(movieList)
     }
 
     private fun moviesMockData(): List<Movie> {

@@ -15,9 +15,6 @@ class MoviesDetailsViewHolder(private val view: View) : RecyclerView.ViewHolder(
     private val actorName: TextView = view.findViewById(R.id.view_holder_actor_name)
 
     fun onBind(actor: Actor) {
-//        actorPoster.load(actor.picture) {
-//            placeholder(R.mipmap.ic_launcher)
-//        }
 //        actorPoster.load(actor.imageUrl) {
 //            placeholder(R.mipmap.ic_launcher)
 //        }
@@ -26,7 +23,6 @@ class MoviesDetailsViewHolder(private val view: View) : RecyclerView.ViewHolder(
             .load(actor.imageUrl)
             .placeholder(R.mipmap.ic_launcher)
             .into(actorPoster)
-
 
         actorName.text = actor.name
     }
