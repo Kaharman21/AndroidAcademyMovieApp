@@ -7,15 +7,13 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.bumptech.glide.Glide
 import com.pavlodar.androidacademymovieapp.R
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
 import java.lang.StringBuilder
-import kotlin.math.roundToInt
 
 class MoviesListViewHolder(
     view: View,
-    private val action: OnItemClickListener,
+    private val action: OnMovieClickListener,
     private var context: Context
 ) : RecyclerView.ViewHolder(view) {
 
@@ -61,22 +59,16 @@ class MoviesListViewHolder(
         }
         movieGenre.text = st
 
-        setupListeners(movieId = movieData.id, movieData)
+        setupListeners(movieData)
     }
 
-    private fun handleRating(voteAverage: Float): Int{
-        val rating = (voteAverage / 2).roundToInt()
-
-        return rating
-    }
-
-    private fun setupListeners(movieId: Int, movie: Movie) {
+    private fun setupListeners(movie: Movie) {
         movieItem.setOnClickListener {
-            action.onMovieItemClick(movieId = movieId, movie = movie)
+            action.onMovieItemClick(movie = movie)
         }
     }
 }
 
-interface OnItemClickListener {
-    fun onMovieItemClick(movieId: Int, movie: Movie)
+interface OnMovieClickListener {
+    fun onMovieItemClick(movie: Movie)
 }

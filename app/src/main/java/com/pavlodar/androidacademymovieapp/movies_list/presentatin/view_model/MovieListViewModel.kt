@@ -12,15 +12,15 @@ class MovieListViewModel(
 ): AndroidViewModel(application) {
 
     private val movieListLiveData = MutableLiveData<List<Movie>>()
- //   private var appContext: Context = application
-// private val context = getApplication<Application>().applicationContext
 
     fun getMovieList(): LiveData<List<Movie>>{
-
         viewModelScope.launch {
             movieListLiveData.postValue(loadMovies(getApplication()))
         }
-
         return movieListLiveData
+    }
+
+    override fun onCleared() {
+        super.onCleared()
     }
 }

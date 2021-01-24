@@ -6,8 +6,8 @@
     <dimen name="fragment_movies_details_favourite_top_margin">57dp</dimen>
     <dimen name="fragment_movies_details_back_img_width">6dp</dimen>
     <dimen name="fragment_movies_details_back_img_height">10dp</dimen>
-    <dimen name="fragment_movies_details_back_img_top_margin">59dp</dimen>
-    <dimen name="fragment_movies_details_back_img_start_margin">18dp</dimen>
+    <dimen name="fragment_movies_details_back_text_view_top_margin">59dp</dimen>
+    <dimen name="fragment_movies_details_back_text_view_start_margin">18dp</dimen>
     <dimen name="fragment_movies_details_back_text_size">14sp</dimen>
     <dimen name="fragment_movies_details_back_text_margin">8dp</dimen>
     <dimen name="fragment_movies_details_adult_text_size">14sp</dimen>

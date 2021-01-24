@@ -5,18 +5,22 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.pavlodar.androidacademymovieapp.R
 import com.pavlodar.androidacademymovieapp.common.presentation.views.BaseFragment
 import com.pavlodar.androidacademymovieapp.data.loadMovies
+import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MoviesDetailsViewModel
+import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MoviesDetailsViewModelFactory
 import com.pavlodar.androidacademymovieapp.movies_details.presentation.views.MoviesDetailsAdapter
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.Actor
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
 import java.lang.StringBuilder
 
-class FragmentMoviesDetails(movieId: Int, private val movie: Movie) :
+class FragmentMoviesDetails() : //private val movie: Movie
     BaseFragment(R.layout.fragment_movies_details) {
 
     private lateinit var recyclerView: RecyclerView
@@ -28,45 +32,57 @@ class FragmentMoviesDetails(movieId: Int, private val movie: Movie) :
     private lateinit var rating: RatingBar
     private lateinit var storylineTitle: TextView
     private lateinit var storylineText: TextView
+    private lateinit var backTextView: TextView
 
     private var adapter: MoviesDetailsAdapter = MoviesDetailsAdapter()
-    private var actorList: List<Actor> = listOf()
+
+    private val viewModel: MoviesDetailsViewModel by viewModels {
+        val movie: Movie = arguments?.getParcelable(MOVIE_ARGUMENT)!!
+        MoviesDetailsViewModelFactory(movie)
+    }
+
+    private var param1: Movie? = arguments?.getParcelable(MOVIE_ARGUMENT)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        actorMockData()
-
         initViews(view)
-        handleData()
-//        adapter.setData(actorList)
-        adapter.setData(movie.actors)
+        initViewModel()
+    }
+//
+    private fun initViewModel() {
+//        val viewModel = ViewModelProvider(this).get(MoviesDetailsViewModel::class.java)
+//        viewModel.getMovieData(movie!!).observe(this.viewLifecycleOwner, ::handleData)
+        viewModel.getMovieData().observe(this.viewLifecycleOwner, ::handleData)
+
     }
 
-    private fun handleData() {
-        moviePoster.load(movie.imageUrl){
+    private fun handleData(movieData: Movie) {
+        moviePoster.load(movieData.imageUrl){
             placeholder(R.drawable.ic_favorite_filed)
         }
-        minimumAge.text = movie.pgAge.toString()
-        movieTitle.text = movie.title
-        rating.rating = movie.rating.toFloat()
-        storylineText.text = movie.storyLine
+        minimumAge.text = movieData.pgAge.toString()
+        movieTitle.text = movieData.title
+        rating.rating = movieData.rating.toFloat()
+        storylineText.text = movieData.storyLine
 
-        handleFavorite()
+        handleFavorite(movieData)
 
         var st = StringBuilder()
 
-        for (n in movie.genres.indices) {
-            st.append(movie.genres[n].name)
-            if (n<movie.genres.size-1){
+        for (n in movieData.genres.indices) {
+            st.append(movieData.genres[n].name)
+            if (n<movieData.genres.size-1){
                 st.append(", ")
             }
         }
         movieGenre.text = st
+
+        adapter.setData(movieData.actors)
     }
 
-    private fun handleFavorite(){
-        if (movie.isLiked) {
+    private fun handleFavorite(movieData: Movie){
+        if (movieData.isLiked) {
             favoriteImage.load(R.drawable.ic_favorite_filed)
         } else {
             favoriteImage.load(R.drawable.ic_favorite_empty)
@@ -82,6 +98,7 @@ class FragmentMoviesDetails(movieId: Int, private val movie: Movie) :
         rating = view.findViewById(R.id.fragment_movies_details_rating)
         storylineTitle = view.findViewById(R.id.fragment_movies_details_storyline_title)
         storylineText = view.findViewById(R.id.fragment_movies_details_storyline_text)
+        backTextView = view.findViewById(R.id.fragment_movies_details_back_text_view)
 
         recyclerView = view.findViewById(R.id.fragment_movies_details_recycler_view)
         recyclerView.layoutManager =
@@ -89,13 +106,18 @@ class FragmentMoviesDetails(movieId: Int, private val movie: Movie) :
         recyclerView.adapter = adapter
     }
 
-    private fun actorMockData() {
-        actorList = listOf(
-            Actor(1, "Hero-mero", ""),
-            Actor(2, "sssss", ""),
-            Actor(2, "sssss", ""),
-            Actor(2, "sssss", ""),
-            Actor(2, "sssss", "")
-        )
+    companion object {
+        private const val MOVIE_ARGUMENT = "MOVIE_ARGUMENT"
+
+        fun newInstance(movie: Movie): FragmentMoviesDetails {
+            val args = Bundle()
+            args.putParcelable(MOVIE_ARGUMENT, movie)
+
+            val fragment = FragmentMoviesDetails()
+            fragment.arguments = args
+            return fragment
+        }
     }
 }
+
+interface
