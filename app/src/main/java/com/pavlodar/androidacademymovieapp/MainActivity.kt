@@ -36,7 +36,9 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener, OnBackPressedInt
 
     private fun goToDetailsFragment(movie: Movie){
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_activity_container, FragmentMoviesDetails.newInstance(movie)).commit()
+            .replace(R.id.main_activity_container, FragmentMoviesDetails.newInstance(movie))
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onMovieItemClick(movie: Movie) {
