@@ -1,5 +1,6 @@
 package com.pavlodar.androidacademymovieapp
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,11 +10,12 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.pavlodar.androidacademymovieapp.movies_details.FragmentMoviesDetails
+import com.pavlodar.androidacademymovieapp.movies_details.OnBackPressedInterface
 import com.pavlodar.androidacademymovieapp.movies_list.FragmentMoviesList
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.OnMovieClickListener
 
-class MainActivity : AppCompatActivity(), OnMovieClickListener {
+class MainActivity : AppCompatActivity(), OnMovieClickListener, OnBackPressedInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,5 +41,9 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
 
     override fun onMovieItemClick(movie: Movie) {
         goToDetailsFragment(movie)
+    }
+
+    override fun onBackPressedAction() {
+        onBackPressed()
     }
 }

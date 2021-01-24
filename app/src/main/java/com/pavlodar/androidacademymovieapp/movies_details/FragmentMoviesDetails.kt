@@ -1,5 +1,6 @@
 package com.pavlodar.androidacademymovieapp.movies_details
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -20,8 +21,7 @@ import com.pavlodar.androidacademymovieapp.movies_list.data.models.Actor
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
 import java.lang.StringBuilder
 
-class FragmentMoviesDetails() : //private val movie: Movie
-    BaseFragment(R.layout.fragment_movies_details) {
+class FragmentMoviesDetails() : BaseFragment(R.layout.fragment_movies_details) {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var moviePoster: ImageView
@@ -34,6 +34,7 @@ class FragmentMoviesDetails() : //private val movie: Movie
     private lateinit var storylineText: TextView
     private lateinit var backTextView: TextView
 
+    private var listener: OnBackPressedInterface? = null
     private var adapter: MoviesDetailsAdapter = MoviesDetailsAdapter()
 
     private val viewModel: MoviesDetailsViewModel by viewModels {
@@ -41,20 +42,28 @@ class FragmentMoviesDetails() : //private val movie: Movie
         MoviesDetailsViewModelFactory(movie)
     }
 
-    private var param1: Movie? = arguments?.getParcelable(MOVIE_ARGUMENT)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is OnBackPressedInterface){
+            listener = context
+        }
+    }
+
+    override fun onDetach() {
+        listener = null
+        super.onDetach()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initViews(view)
         initViewModel()
+        setupListeners()
     }
-//
-    private fun initViewModel() {
-//        val viewModel = ViewModelProvider(this).get(MoviesDetailsViewModel::class.java)
-//        viewModel.getMovieData(movie!!).observe(this.viewLifecycleOwner, ::handleData)
-        viewModel.getMovieData().observe(this.viewLifecycleOwner, ::handleData)
 
+    private fun initViewModel() {
+        viewModel.getMovieData().observe(this.viewLifecycleOwner, ::handleData)
     }
 
     private fun handleData(movieData: Movie) {
@@ -106,6 +115,12 @@ class FragmentMoviesDetails() : //private val movie: Movie
         recyclerView.adapter = adapter
     }
 
+    private fun setupListeners() {
+        backTextView.setOnClickListener {
+            listener?.onBackPressedAction()
+        }
+    }
+
     companion object {
         private const val MOVIE_ARGUMENT = "MOVIE_ARGUMENT"
 
@@ -120,4 +135,6 @@ class FragmentMoviesDetails() : //private val movie: Movie
     }
 }
 
-interface
+interface OnBackPressedInterface{
+    fun onBackPressedAction()
+}
