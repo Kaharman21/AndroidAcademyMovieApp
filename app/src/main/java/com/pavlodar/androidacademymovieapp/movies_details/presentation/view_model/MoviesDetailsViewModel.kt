@@ -1,20 +1,18 @@
 package com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieApiData
 
 class MoviesDetailsViewModel(
-    movie: Movie
+    movieData: MovieApiData
 ): ViewModel() {
 
-    private val movieLiveData = MutableLiveData<Movie>(movie)
+    private val movieLiveData = MutableLiveData<MovieApiData>(movieData)
 
-    fun getMovieData(): LiveData<Movie> {
+    fun getMovieData(): LiveData<MovieApiData> {
         return movieLiveData
     }
 

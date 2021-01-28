@@ -1,22 +1,29 @@
 package com.pavlodar.androidacademymovieapp.movies_list.presentatin.view_model
 
 import android.app.Application
-import android.content.Context
 import androidx.lifecycle.*
-import com.pavlodar.androidacademymovieapp.data.loadMovies
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
-import kotlinx.coroutines.launch
+import com.pavlodar.androidacademymovieapp.movies_list.data.MoviesListRepository
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieApiData
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
 
 class MovieListViewModel(
     application: Application
 ): AndroidViewModel(application) {
 
-    private val movieListLiveData = MutableLiveData<List<Movie>>()
+    private val movieListLiveData = MutableLiveData<List<MovieData>>()
+    private val moviesListRepository = MoviesListRepository(application)
 
-    fun getMovieList(): LiveData<List<Movie>>{
-        viewModelScope.launch {
-            movieListLiveData.postValue(loadMovies(getApplication()))
-        }
+    fun getMovieList(): LiveData<List<MovieData>>{
+
+        moviesListRepository.getMoviesList(
+            result = {
+                movieListLiveData.postValue(it)
+            },
+            fail = {
+
+            },
+            viewModelScope
+        )
         return movieListLiveData
     }
 

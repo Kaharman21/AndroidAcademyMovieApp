@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieApiData
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
 
 class MoviesListAdapter(
     var clickListener: OnMovieClickListener
 ) : RecyclerView.Adapter<MoviesListViewHolder>() {
 
-    private val moviesList: MutableList<Movie> = mutableListOf()
+    private val moviesList: MutableList<MovieData> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesListViewHolder {
         var inflater = LayoutInflater.from(parent.context)
@@ -27,9 +28,9 @@ class MoviesListAdapter(
 
     override fun getItemCount(): Int = moviesList.size
 
-    fun setData(movieData: List<Movie>){
+    fun setData(movieDatumData: List<MovieData>){
         moviesList.clear()
-        moviesList.addAll(movieData)
+        moviesList.addAll(movieDatumData)
         notifyDataSetChanged()
     }
 }

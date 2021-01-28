@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.pavlodar.androidacademymovieapp.R
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.Movie
-import java.lang.StringBuilder
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
+
+private const val ADDRESS_FOR_IMAGE = "https://image.tmdb.org/t/p/w500"
 
 class MoviesListViewHolder(
     view: View,
@@ -28,8 +29,8 @@ class MoviesListViewHolder(
     private val movieTitle: TextView = view.findViewById(R.id.fragment_movies_list_title)
     private val movieRuntime: TextView = view.findViewById(R.id.fragment_movies_list_runtime)
 
-    fun onBind(movieData: Movie) {
-        moviePoster.load(movieData.imageUrl){
+    fun onBind(movieData: MovieData) {
+        moviePoster.load(ADDRESS_FOR_IMAGE + movieData.posterPath){
             placeholder(R.drawable.avengers_movie)
         }
 
@@ -38,22 +39,22 @@ class MoviesListViewHolder(
 //            .into(moviePoster)
 
         minimumAge.text = "${movieData.pgAge}+"
-        movieRating.rating = movieData.rating.toFloat()
-        reviewsNumber.text = movieData.reviewCount.toString()
+        movieRating.rating = movieData.raiting.toFloat()
+        reviewsNumber.text = movieData.voteCount.toString()
         movieTitle.text = movieData.title
-        movieRuntime.text = "${movieData.runningTime} min"
+//        movieRuntime.text = "${movieData.runningTime} min"
 
-        if (movieData.isLiked) {
-            favorite.load(R.drawable.ic_favorite_filed)
-        } else {
-            favorite.load(R.drawable.ic_favorite_empty)
-        }
+//        if (movieData.isLiked) {
+//            favorite.load(R.drawable.ic_favorite_filed)
+//        } else {
+//            favorite.load(R.drawable.ic_favorite_empty)
+//        }
 
         var st = StringBuilder()
 
-        for (n in movieData.genres.indices) {
-            st.append(movieData.genres[n].name)
-            if (n<movieData.genres.size-1){
+        for (n in movieData.genreIDS.indices) {
+            st.append(movieData.genreIDS[n].name)
+            if (n<movieData.genreIDS.size-1){
                 st.append(", ")
             }
         }
@@ -62,13 +63,13 @@ class MoviesListViewHolder(
         setupListeners(movieData)
     }
 
-    private fun setupListeners(movie: Movie) {
+    private fun setupListeners(movieData: MovieData) {
         movieItem.setOnClickListener {
-            action.onMovieItemClick(movie = movie)
+            action.onMovieItemClick(movieData = movieData)
         }
     }
 }
 
 interface OnMovieClickListener {
-    fun onMovieItemClick(movie: Movie)
+    fun onMovieItemClick(movieData: MovieData)
 }

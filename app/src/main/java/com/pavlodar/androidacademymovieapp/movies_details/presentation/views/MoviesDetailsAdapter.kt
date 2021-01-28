@@ -4,11 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.Actor
 
 class MoviesDetailsAdapter: RecyclerView.Adapter<MoviesDetailsViewHolder>() {
 
-    private val actorList: MutableList<Actor> = mutableListOf()
+    private val actorList: MutableList<ActorApi> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesDetailsViewHolder {
         var inflater = LayoutInflater.from(parent.context)
@@ -21,7 +20,7 @@ class MoviesDetailsAdapter: RecyclerView.Adapter<MoviesDetailsViewHolder>() {
 
     override fun getItemCount(): Int = actorList.size
 
-    fun setData(actorData: List<Actor>){
+    fun setData(actorData: List<ActorApi>){
         actorList.clear()
         actorList.addAll(actorData)
         notifyDataSetChanged()
