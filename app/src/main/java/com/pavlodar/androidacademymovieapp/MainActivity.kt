@@ -3,6 +3,7 @@ package com.pavlodar.androidacademymovieapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.pavlodar.androidacademymovieapp.movies_details.FragmentMoviesDetails
 //import com.pavlodar.androidacademymovieapp.movies_details.FragmentMoviesDetails
 //import com.pavlodar.androidacademymovieapp.movies_details.OnBackPressedInterface
 import com.pavlodar.androidacademymovieapp.movies_list.FragmentMoviesList
@@ -29,17 +30,17 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener{  //, OnBackPress
         super.onDestroy()
     }
 
-    override fun onMovieItemClick(movieData: MovieData) {
-        goToDetailsFragment(movieData)
+    override fun onMovieItemClick(movieId: Long) {
+        goToDetailsFragment(movieId)
     }
 
-    private fun goToDetailsFragment(movie: MovieData){
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.main_activity_container, FragmentMoviesDetails.newInstance(movie))
-//            .addToBackStack(null)
-//            .commit()
+    private fun goToDetailsFragment(movieId: Long){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_activity_container, FragmentMoviesDetails.newInstance(movieId))
+            .addToBackStack(null)
+            .commit()
     }
-//
+
 //    override fun onBackPressedAction() {
 //        onBackPressed()
 //    }

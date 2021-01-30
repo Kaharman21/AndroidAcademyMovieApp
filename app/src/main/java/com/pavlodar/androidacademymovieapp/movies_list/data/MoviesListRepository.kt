@@ -2,11 +2,11 @@ package com.pavlodar.androidacademymovieapp.movies_list.data
 
 import android.app.Application
 import android.content.Context
+import com.pavlodar.androidacademymovieapp.common.data.retrofit.RetrofitClient
 import com.pavlodar.androidacademymovieapp.data.models.JsonGenre
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.Genre
+import com.pavlodar.androidacademymovieapp.movies_list.data.models.GenreData
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
-import com.pavlodar.androidacademymovieapp.movies_list.data.retrofit.MoviesListClient
-import com.pavlodar.androidacademymovieapp.movies_list.utils.mappers.MovieApiMapper
+import com.pavlodar.androidacademymovieapp.common.utils.mappers.MovieApiMapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.decodeFromString
@@ -27,7 +27,7 @@ class MoviesListRepository(
     ){
         try{
             coroutineScope.launch {
-                val response = MoviesListClient.moviesListApi.getPages()
+                val response = RetrofitClient.moviesListApi.getPages()
                 val moviesListApi = response.results
                 val genresList = loadGenres(application)
                 val moviesList = movieApiMapper.mapToListMovieData(moviesListApi, genresList)
@@ -38,7 +38,7 @@ class MoviesListRepository(
         }
     }
 
-    private fun loadGenres(context: Context): List<Genre> {
+    private fun loadGenres(context: Context): List<GenreData> {
         val data = readAssetFileToString(context, "genres.json")
         return parseGenresNew(data)
     }
@@ -48,8 +48,8 @@ class MoviesListRepository(
         return stream.bufferedReader().readText()
     }
 
-    private fun parseGenresNew(jsonString: String): List<Genre> {
+    private fun parseGenresNew(jsonString: String): List<GenreData> {
         val jsonGenres = jsonFormat.decodeFromString<List<JsonGenre>>(jsonString)
-        return jsonGenres.map { jsonGenre -> Genre(id = jsonGenre.id, name = jsonGenre.name) }
+        return jsonGenres.map { jsonGenre -> GenreData(id = jsonGenre.id, name = jsonGenre.name) }
     }
 }

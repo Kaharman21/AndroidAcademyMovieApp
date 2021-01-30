@@ -7,18 +7,18 @@ import retrofit2.Retrofit
 import retrofit2.create
 
 
-private const val BASE_URL = "https://api.themoviedb.org/"
-
-object MoviesListClient{
-    private val json = Json{
-        ignoreUnknownKeys = true
-    }
-
-    private val contentType = "application/json".toMediaType()
-    private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(json.asConverterFactory(contentType))
-        .build()
-
-    val moviesListApi: MoviesListApi = retrofit.create()
-}
+//private const val BASE_URL = "https://api.themoviedb.org/"
+//
+//object MoviesListClient{
+//    private val json = Json{
+//        ignoreUnknownKeys = true
+//    }
+//
+//    private val contentType = "application/json".toMediaType()
+//    private val retrofit: Retrofit = Retrofit.Builder()
+//        .baseUrl(BASE_URL)
+//        .addConverterFactory(json.asConverterFactory(contentType))
+//        .build()
+//
+//    val moviesListApi: MoviesListApi = retrofit.create()
+//}

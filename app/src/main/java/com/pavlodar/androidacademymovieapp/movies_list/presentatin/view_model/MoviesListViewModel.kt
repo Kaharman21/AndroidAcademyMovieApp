@@ -6,7 +6,7 @@ import com.pavlodar.androidacademymovieapp.movies_list.data.MoviesListRepository
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieApiData
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
 
-class MovieListViewModel(
+class MoviesListViewModel(
     application: Application
 ): AndroidViewModel(application) {
 

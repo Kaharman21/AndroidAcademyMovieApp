@@ -1,5 +1,6 @@
 package com.pavlodar.androidacademymovieapp.movies_details
 
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -7,20 +8,20 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.pavlodar.androidacademymovieapp.R
 import com.pavlodar.androidacademymovieapp.common.presentation.views.BaseFragment
-import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MoviesDetailsViewModel
-import com.pavlodar.androidacademymovieapp.movies_details.presentation.views.MoviesDetailsAdapter
+import com.pavlodar.androidacademymovieapp.movies_details.data.models.MovieDetails
+import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MovieDetailsViewModel
+import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MovieDetailsViewModelFactory
+import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.ADDRESS_FOR_IMAGE
+
 //import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MoviesDetailsViewModelFactory
 //import com.pavlodar.androidacademymovieapp.movies_details.presentation.views.MoviesDetailsAdapter
-import java.lang.StringBuilder
 
-class FragmentMoviesDetails() : BaseFragment(R.layout.fragment_movies_details) {
+class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
 
-    private lateinit var recyclerView: RecyclerView
+//    private lateinit var recyclerView: RecyclerView
     private lateinit var moviePoster: ImageView
     private lateinit var favoriteImage: ImageView
     private lateinit var minimumAge: TextView
@@ -32,12 +33,14 @@ class FragmentMoviesDetails() : BaseFragment(R.layout.fragment_movies_details) {
     private lateinit var backTextView: TextView
 
     private var listener: OnBackPressedInterface? = null
-    private var adapter: MoviesDetailsAdapter = MoviesDetailsAdapter()
+//    private var adapter: MovieDetailsAdapter = MovieDetailsAdapter()
 
-    private val viewModel: MoviesDetailsViewModel by viewModels {
-        val movie: MovieApi = arguments?.getParcelable(MOVIE_ARGUMENT)!!
-        MoviesDetailsViewModelFactory(movie)
+    private val viewModel: MovieDetailsViewModel by viewModels {
+        val movieId: Long = arguments?.getLong(MOVIE_ARGUMENT)!!
+        MovieDetailsViewModelFactory(movieId = movieId, application = requireContext().applicationContext as Application)
     }
+
+//    private lateinit var viewModel: MovieDetailsViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -51,6 +54,11 @@ class FragmentMoviesDetails() : BaseFragment(R.layout.fragment_movies_details) {
         super.onDetach()
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.loadData()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -60,10 +68,33 @@ class FragmentMoviesDetails() : BaseFragment(R.layout.fragment_movies_details) {
     }
 
     private fun initViewModel() {
-        viewModel.getMovieData().observe(this.viewLifecycleOwner, ::handleData)
+//        viewModel.getMovieId().observe(this.viewLifecycleOwner, ::handleData)
+        viewModel.getMovieDetails().observe(this.viewLifecycleOwner, ::handleData)
     }
 
-    private fun handleData(movieData: MovieApi) {
+    private fun handleData(movieDetails: MovieDetails) {
+        movieTitle.text = movieDetails.title
+        moviePoster.load(ADDRESS_FOR_IMAGE+movieDetails.posterPath){
+            placeholder(R.drawable.ic_favorite_filed)
+        }
+        minimumAge.text = movieDetails.minimumAge.toString()
+        rating.rating = movieDetails.voteAverage
+        storylineText.text = movieDetails.overview
+
+        var movieGenresData = StringBuilder()
+
+        for (n in movieDetails.genreApis.indices){
+            movieGenresData.append(movieDetails.genreApis[n].name)
+            if (n<movieDetails.genreApis.size-1){
+                movieGenresData.append(", ")
+            }
+        }
+        movieGenre.text = movieGenresData
+
+
+    }
+
+    private fun handleNewData(movieId: Long) {
 //        moviePoster.load(movieData.imageUrl){
 //            placeholder(R.drawable.ic_favorite_filed)
 //        }
@@ -87,13 +118,13 @@ class FragmentMoviesDetails() : BaseFragment(R.layout.fragment_movies_details) {
 //        adapter.setData(movieData.actors)
     }
 
-    private fun handleFavorite(movieData: MovieApi){
-//        if (movieData.isLiked) {
+//    private fun handleFavorite(movieDetails: MovieDetails){
+//        if (movieDetails.isLiked) {
 //            favoriteImage.load(R.drawable.ic_favorite_filed)
 //        } else {
 //            favoriteImage.load(R.drawable.ic_favorite_empty)
 //        }
-    }
+//    }
 
     private fun initViews(view: View) {
         moviePoster = view.findViewById(R.id.fragment_movies_details_background_image)
@@ -106,10 +137,10 @@ class FragmentMoviesDetails() : BaseFragment(R.layout.fragment_movies_details) {
         storylineText = view.findViewById(R.id.fragment_movies_details_storyline_text)
         backTextView = view.findViewById(R.id.fragment_movies_details_back_text_view)
 
-        recyclerView = view.findViewById(R.id.fragment_movies_details_recycler_view)
-        recyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = adapter
+//        recyclerView = view.findViewById(R.id.fragment_movies_details_recycler_view)
+//        recyclerView.layoutManager =
+//            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+//        recyclerView.adapter = adapter
     }
 
     private fun setupListeners() {
@@ -121,9 +152,9 @@ class FragmentMoviesDetails() : BaseFragment(R.layout.fragment_movies_details) {
     companion object {
         private const val MOVIE_ARGUMENT = "MOVIE_ARGUMENT"
 
-        fun newInstance(movie: MovieApi): FragmentMoviesDetails {
+        fun newInstance(movieId: Long): FragmentMoviesDetails {
             val args = Bundle()
-       //     args.putParcelable(MOVIE_ARGUMENT, movie)
+            args.putLong(MOVIE_ARGUMENT, movieId)
 
             val fragment = FragmentMoviesDetails()
             fragment.arguments = args

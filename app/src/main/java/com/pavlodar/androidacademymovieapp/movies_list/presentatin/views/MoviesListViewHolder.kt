@@ -10,7 +10,7 @@ import coil.load
 import com.pavlodar.androidacademymovieapp.R
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
 
-private const val ADDRESS_FOR_IMAGE = "https://image.tmdb.org/t/p/w500"
+const val ADDRESS_FOR_IMAGE = "https://image.tmdb.org/t/p/w500"
 
 class MoviesListViewHolder(
     view: View,
@@ -39,7 +39,7 @@ class MoviesListViewHolder(
 //            .into(moviePoster)
 
         minimumAge.text = "${movieData.pgAge}+"
-        movieRating.rating = movieData.raiting.toFloat()
+        movieRating.rating = movieData.raiting
         reviewsNumber.text = movieData.voteCount.toString()
         movieTitle.text = movieData.title
 //        movieRuntime.text = "${movieData.runningTime} min"
@@ -60,16 +60,16 @@ class MoviesListViewHolder(
         }
         movieGenre.text = st
 
-        setupListeners(movieData)
+        setupListeners(movieData.id)
     }
 
-    private fun setupListeners(movieData: MovieData) {
+    private fun setupListeners(movieId: Long) {
         movieItem.setOnClickListener {
-            action.onMovieItemClick(movieData = movieData)
+            action.onMovieItemClick(movieId = movieId)
         }
     }
 }
 
 interface OnMovieClickListener {
-    fun onMovieItemClick(movieData: MovieData)
+    fun onMovieItemClick(movieId: Long)
 }

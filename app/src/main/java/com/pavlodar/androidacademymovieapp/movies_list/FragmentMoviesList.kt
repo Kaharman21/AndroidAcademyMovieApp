@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
 import com.pavlodar.androidacademymovieapp.common.presentation.views.BaseFragment
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieApiData
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
-import com.pavlodar.androidacademymovieapp.movies_list.presentatin.view_model.MovieListViewModel
+import com.pavlodar.androidacademymovieapp.movies_list.presentatin.view_model.MoviesListViewModel
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.MoviesListAdapter
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.OnMovieClickListener
 
@@ -23,7 +22,7 @@ class FragmentMoviesList :
     private lateinit var adapter: MoviesListAdapter
 
     private var listener: OnMovieClickListener? = null
-    private val viewModel: MovieListViewModel by viewModels()
+    private val viewModel: MoviesListViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
