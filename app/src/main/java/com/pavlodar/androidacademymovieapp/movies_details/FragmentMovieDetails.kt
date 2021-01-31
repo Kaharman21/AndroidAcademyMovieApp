@@ -8,20 +8,23 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.pavlodar.androidacademymovieapp.R
 import com.pavlodar.androidacademymovieapp.common.presentation.views.BaseFragment
 import com.pavlodar.androidacademymovieapp.movies_details.data.models.MovieDetails
+import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorOneApi
+import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorsListApi
 import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MovieDetailsViewModel
 import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MovieDetailsViewModelFactory
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.ADDRESS_FOR_IMAGE
 
-//import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MoviesDetailsViewModelFactory
-//import com.pavlodar.androidacademymovieapp.movies_details.presentation.views.MoviesDetailsAdapter
+import com.pavlodar.androidacademymovieapp.movies_details.presentation.views.MovieDetailsAdapter
 
 class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
 
-//    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: RecyclerView
     private lateinit var moviePoster: ImageView
     private lateinit var favoriteImage: ImageView
     private lateinit var minimumAge: TextView
@@ -33,14 +36,12 @@ class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
     private lateinit var backTextView: TextView
 
     private var listener: OnBackPressedInterface? = null
-//    private var adapter: MovieDetailsAdapter = MovieDetailsAdapter()
+    private var adapter: MovieDetailsAdapter = MovieDetailsAdapter()
 
     private val viewModel: MovieDetailsViewModel by viewModels {
         val movieId: Long = arguments?.getLong(MOVIE_ARGUMENT)!!
         MovieDetailsViewModelFactory(movieId = movieId, application = requireContext().applicationContext as Application)
     }
-
-//    private lateinit var viewModel: MovieDetailsViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -70,6 +71,11 @@ class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
     private fun initViewModel() {
 //        viewModel.getMovieId().observe(this.viewLifecycleOwner, ::handleData)
         viewModel.getMovieDetails().observe(this.viewLifecycleOwner, ::handleData)
+        viewModel.getActorsList().observe(this.viewLifecycleOwner, ::handleActors)
+    }
+
+    private fun handleActors(actorsList: List<ActorOneApi>) {
+        adapter.setData(actorsList)
     }
 
     private fun handleData(movieDetails: MovieDetails) {
@@ -137,10 +143,10 @@ class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
         storylineText = view.findViewById(R.id.fragment_movies_details_storyline_text)
         backTextView = view.findViewById(R.id.fragment_movies_details_back_text_view)
 
-//        recyclerView = view.findViewById(R.id.fragment_movies_details_recycler_view)
-//        recyclerView.layoutManager =
-//            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-//        recyclerView.adapter = adapter
+        recyclerView = view.findViewById(R.id.fragment_movies_details_recycler_view)
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = adapter
     }
 
     private fun setupListeners() {

@@ -4,6 +4,7 @@ import android.app.Application
 import com.pavlodar.androidacademymovieapp.common.data.retrofit.RetrofitClientTwo
 import com.pavlodar.androidacademymovieapp.movies_details.data.models.MovieDetails
 import com.pavlodar.androidacademymovieapp.common.utils.mappers.MovieDetailsMapper
+import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorOneApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -14,7 +15,7 @@ class MovieDetailsRepository(
     private val movieDetailsMapper = MovieDetailsMapper()
 
     fun getMovieDetails(
-        result: (MovieDetails) -> Unit,
+        result: (MovieDetails, List<ActorOneApi>) -> Unit,
         fail: (String) -> Unit,
         coroutineScope: CoroutineScope,
         movieId: Long
@@ -22,8 +23,10 @@ class MovieDetailsRepository(
         try {
             coroutineScope.launch {
                 val movieDetailsApi = RetrofitClientTwo.movieDetailsApi.getMovieDetails(movieId)
+                val actorsResponse = RetrofitClientTwo.movieDetailsApi.getActors(movieId)
+                val actorsListResponse = actorsResponse.cast
                 val movieDetails = movieDetailsMapper.mapToMovieDetails(movieDetailsApi)
-                result(movieDetails)
+                result(movieDetails, actorsListResponse)
             }
         } catch (e: Exception){
             fail(e.localizedMessage)
