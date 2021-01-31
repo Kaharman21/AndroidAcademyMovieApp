@@ -27,7 +27,7 @@ class MoviesListRepository(
     ){
         try{
             coroutineScope.launch {
-                val movieDetailsResponse = RetrofitClient.moviesListApi.getPages()
+                val movieDetailsResponse = RetrofitClient.moviesApi.getPages()
                 val moviesListApi = movieDetailsResponse.results
                 val genresList = loadGenres(application)
                 val moviesList = movieApiMapper.mapToListMovieData(moviesListApi, genresList)
