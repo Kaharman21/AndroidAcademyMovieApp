@@ -19,21 +19,5 @@ object RetrofitClient{
         .addConverterFactory(json.asConverterFactory(contentType))
         .build()
 
-//    val moviesListApi: MoviesListApi = retrofit.create()
-//    val movieDetailsApi: MovieDetailsApi = retrofit.create()
     val moviesApi: MovieApi = retrofit.create()
 }
-//
-//object RetrofitClientTwo{
-//    private val json = Json{
-//        ignoreUnknownKeys = true
-//    }
-//
-//    private val contentType = "application/json".toMediaType()
-//    private val retrofit: Retrofit = Retrofit.Builder()
-//        .baseUrl(BASE_URL)
-//        .addConverterFactory(json.asConverterFactory(contentType))
-//        .build()
-//
-//    val movieDetailsApi: MovieDetailsApi = retrofit.create()
-//}
