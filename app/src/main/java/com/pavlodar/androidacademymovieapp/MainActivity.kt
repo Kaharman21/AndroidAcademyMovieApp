@@ -2,13 +2,11 @@ package com.pavlodar.androidacademymovieapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import com.pavlodar.androidacademymovieapp.common.extensions.showToast
 import com.pavlodar.androidacademymovieapp.movies_details.FragmentMoviesDetails
 //import com.pavlodar.androidacademymovieapp.movies_details.FragmentMoviesDetails
 //import com.pavlodar.androidacademymovieapp.movies_details.OnBackPressedInterface
 import com.pavlodar.androidacademymovieapp.movies_list.FragmentMoviesList
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieApiData
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.OnMovieClickListener
 
 class MainActivity : AppCompatActivity(), OnMovieClickListener{  //, OnBackPressedInterface {
@@ -21,12 +19,12 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener{  //, OnBackPress
             supportFragmentManager.beginTransaction()
                 .replace(R.id.main_activity_container, FragmentMoviesList()).commit()
         } else {
-            Toast.makeText(this, "***onCreate***", Toast.LENGTH_SHORT).show()
+            showToast("***onCreate***")
         }
     }
 
     override fun onDestroy() {
-        Toast.makeText(this, "***onDestroy***", Toast.LENGTH_SHORT).show()
+        showToast("***onDestroy***")
         super.onDestroy()
     }
 

@@ -8,11 +8,13 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
+import com.pavlodar.androidacademymovieapp.common.extensions.showToast
 import com.pavlodar.androidacademymovieapp.common.presentation.views.BaseFragment
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.view_model.MoviesListViewModel
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.MoviesListAdapter
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.OnMovieClickListener
+import com.pavlodar.androidacademymovieapp.movies_list.utils.MoviesListResponseData
 
 class FragmentMoviesList :
     BaseFragment(R.layout.fragment_movies_list),
@@ -48,10 +50,18 @@ class FragmentMoviesList :
     }
 
     private fun initViewModel() {
-        viewModel.getMovieList().observe(this.viewLifecycleOwner, ::loadData)
+        viewModel.loadData()
+        viewModel.getMoviesList().observe(this.viewLifecycleOwner, ::loadData)
     }
 
-    private fun loadData(movieListData: List<MovieData>) {
-        adapter.setData(movieListData)
+    private fun loadData(moviesList: MoviesListResponseData<List<MovieData>, String>?) {
+        when (moviesList){
+            is MoviesListResponseData.Success -> adapter.setData(moviesList.response)
+            is MoviesListResponseData.Erroe -> handleErrorResponse(moviesList.error)
+        }
+    }
+
+    private fun handleErrorResponse(errorMessage: String){
+        context?.showToast(errorMessage)
     }
 }

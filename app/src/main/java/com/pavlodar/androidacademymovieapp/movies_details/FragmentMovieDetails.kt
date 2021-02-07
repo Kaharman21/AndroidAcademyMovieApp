@@ -14,8 +14,8 @@ import coil.load
 import com.pavlodar.androidacademymovieapp.R
 import com.pavlodar.androidacademymovieapp.common.presentation.views.BaseFragment
 import com.pavlodar.androidacademymovieapp.movies_details.data.models.MovieDetails
-import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorOneApi
-import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorsListApi
+import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.Actor
+import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorApi
 import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MovieDetailsViewModel
 import com.pavlodar.androidacademymovieapp.movies_details.presentation.view_model.MovieDetailsViewModelFactory
 import com.pavlodar.androidacademymovieapp.movies_list.presentatin.views.ADDRESS_FOR_IMAGE
@@ -74,7 +74,7 @@ class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
         viewModel.getActorsList().observe(this.viewLifecycleOwner, ::handleActors)
     }
 
-    private fun handleActors(actorsList: List<ActorOneApi>) {
+    private fun handleActors(actorsList: List<Actor>) {
         adapter.setData(actorsList)
     }
 

@@ -1,4 +1,4 @@
-package com.pavlodar.androidacademymovieapp.movies_list.data.models
+package com.pavlodar.androidacademymovieapp.movies_list.data.models.api
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -8,32 +8,32 @@ data class MovieApiData (
     val id: Long?,
     val adult: Boolean?,
 
-    @SerialName("backdrop_path")
-    val backdropPath: String?,
+//    @SerialName("backdrop_path")
+//    val backdropPath: String?,        // -------------
 
     @SerialName("genre_ids")
     val genreIDS: List<Long>?,
 
     @SerialName("original_language")
-    val originalLanguage: String?,
+    val originalLanguage: String?,        // -------------
 
     @SerialName("original_title")
-    val originalTitle: String?,
+    val originalTitle: String?,        // -------------
 
-    val overview: String?,
-    val popularity: Double?,
+    val overview: String?,        // -------------
+    val popularity: Double?,        // -------------
 
     @SerialName("poster_path")
     val posterPath: String?,
 
-    @SerialName("release_date")
+    @SerialName("release_date")     // --------
     val releaseDate: String?,
 
     val title: String?,
-    val video: Boolean?,
+    val video: Boolean?,    // ------
 
     @SerialName("vote_average")
-    val voteAverage: Double?,        // средний голос
+    val voteAverage: Double?,        // средний голос - raiting
 
     @SerialName("vote_count")
     val voteCount: Long?             // количество голосов

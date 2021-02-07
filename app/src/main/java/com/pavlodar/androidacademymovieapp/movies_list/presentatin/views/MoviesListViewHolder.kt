@@ -39,7 +39,7 @@ class MoviesListViewHolder(
 //            .into(moviePoster)
 
         minimumAge.text = "${movieData.pgAge}+"
-        movieRating.rating = movieData.raiting
+        movieRating.rating = movieData.rating
         reviewsNumber.text = movieData.voteCount.toString()
         movieTitle.text = movieData.title
 //        movieRuntime.text = "${movieData.runningTime} min"
@@ -52,9 +52,9 @@ class MoviesListViewHolder(
 
         var st = StringBuilder()
 
-        for (n in movieData.genreIDS.indices) {
-            st.append(movieData.genreIDS[n].name)
-            if (n<movieData.genreIDS.size-1){
+        for (n in movieData.genresList.indices) {
+            st.append(movieData.genresList[n].name)
+            if (n<movieData.genresList.size-1){
                 st.append(", ")
             }
         }

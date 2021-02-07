@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.pavlodar.androidacademymovieapp.movies_details.data.MovieDetailsRepository
 import com.pavlodar.androidacademymovieapp.movies_details.data.models.MovieDetails
-import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorOneApi
-import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorsListApi
+import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.Actor
+import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.ActorApi
 
 class MovieDetailsViewModel(
     private val movieId: Long,
@@ -15,7 +15,7 @@ class MovieDetailsViewModel(
 
     private val movieDetailsRepository = MovieDetailsRepository(application)
     private val movieDetailsLiveData = MutableLiveData<MovieDetails>()
-    private val actorsListLiveData = MutableLiveData<List<ActorOneApi>>()
+    private val actorsListLiveData = MutableLiveData<List<Actor>>()
 
     fun loadData(){
         movieDetailsRepository.getMovieDetails(
@@ -35,7 +35,7 @@ class MovieDetailsViewModel(
         return movieDetailsLiveData
     }
 
-    fun getActorsList(): LiveData<List<ActorOneApi>>{
+    fun getActorsList(): LiveData<List<Actor>>{
         return actorsListLiveData
     }
 

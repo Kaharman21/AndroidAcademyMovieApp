@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pavlodar.androidacademymovieapp.R
-import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieApiData
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
 
 class MoviesListAdapter(
