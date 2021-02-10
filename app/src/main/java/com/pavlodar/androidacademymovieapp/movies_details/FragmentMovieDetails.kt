@@ -69,7 +69,6 @@ class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
     }
 
     private fun initViewModel() {
-//        viewModel.getMovieId().observe(this.viewLifecycleOwner, ::handleData)
         viewModel.getMovieDetails().observe(this.viewLifecycleOwner, ::handleData)
         viewModel.getActorsList().observe(this.viewLifecycleOwner, ::handleActors)
     }
@@ -96,8 +95,6 @@ class FragmentMoviesDetails : BaseFragment(R.layout.fragment_movies_details) {
             }
         }
         movieGenre.text = movieGenresData
-
-
     }
 
     private fun handleNewData(movieId: Long) {

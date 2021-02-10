@@ -1,4 +1,4 @@
-package com.pavlodar.androidacademymovieapp.movies_details.data.models.api
+package com.pavlodar.androidacademymovieapp.movies_details.data.models.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -23,6 +23,10 @@ class MovieDetailsViewModel(
                 movieDetailsLiveData.postValue(movieDetails)
                 actorsListLiveData.postValue(actorsListApi)
             },
+//            result = { movieDetails ->
+//                movieDetailsLiveData.postValue(movieDetails)
+////                actorsListLiveData.postValue(actorsListApi)
+//            },
             fail = {
 
             },

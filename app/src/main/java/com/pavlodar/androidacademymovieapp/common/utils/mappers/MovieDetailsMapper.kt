@@ -38,6 +38,7 @@ private const val DEFAULT_GENRE_NAME = ""
 
 class MovieDetailsMapper {
 
+    private val actorsListMapper = ActorsListMapper()
 
     fun mapFromApiToMovieDetails(it: MovieDetailsApi?): MovieDetails{
 
@@ -66,7 +67,8 @@ class MovieDetailsMapper {
             title = it?.title ?: DEFAULT_MOVIE_DETAILS_TITLE,
 //            video = it?.video ?: DEFAULT_MOVIE_DETAILS_VIDEO,
             voteAverage =  (it.voteAverage?.div(2))?.toFloat() ?: DEFAULT_MOVIE_DETAILS_VOTE_AVERAGE,
-            voteCount = it?.voteCount ?: DEFAULT_MOVIE_DETAILS_VOTE_COUNT
+            voteCount = it?.voteCount ?: DEFAULT_MOVIE_DETAILS_VOTE_COUNT,
+            actors = emptyList()
         )
     }
 
@@ -110,7 +112,8 @@ class MovieDetailsMapper {
             posterPath = movieDetailsEntity?.posterPath ?: DEFAULT_MOVIE_DETAILS_POSTER_PATH,
             title = movieDetailsEntity?.title ?: DEFAULT_MOVIE_DETAILS_TITLE,
             voteAverage = movieDetailsEntity?.voteAverage ?: DEFAULT_MOVIE_DETAILS_VOTE_AVERAGE,
-            voteCount = movieDetailsEntity?.voteCount ?: DEFAULT_MOVIE_DETAILS_VOTE_COUNT
+            voteCount = movieDetailsEntity?.voteCount ?: DEFAULT_MOVIE_DETAILS_VOTE_COUNT,
+            actors = emptyList()
         )
     }
 
@@ -127,7 +130,19 @@ class MovieDetailsMapper {
         )
     }
 
-//    private fun convertGenreApisToString(genreDataList: List<GenreData>): String{
-//
+//    fun mapFromMovieDetailsWithActorsToMovieDetails(movieDetailsWithActors: MovieDetailsWithActors): MovieDetails{
+//        return MovieDetails(
+//            id = movieDetailsWithActors?.id ?: DEFAULT_MOVIE_DETAILS_ID,
+//            minimumAge = movieDetailsWithActors?.minimumAge ?: DEFAULT_MOVIE_DETAILS_MINIMUM_AGE,
+//            genreApis = stringToGenre(movieDetailsWithActors?.genresName),
+//            overview = movieDetailsWithActors?.overview ?: DEFAULT_MOVIE_DETAILS_OVERVIEW,
+//            posterPath = movieDetailsWithActors?.posterPath ?: DEFAULT_MOVIE_DETAILS_POSTER_PATH,
+//            title = movieDetailsWithActors?.title ?: DEFAULT_MOVIE_DETAILS_TITLE,
+//            voteAverage = movieDetailsWithActors?.voteAverage ?: DEFAULT_MOVIE_DETAILS_VOTE_AVERAGE,
+//            voteCount = movieDetailsWithActors?.voteCount ?: DEFAULT_MOVIE_DETAILS_VOTE_COUNT,
+//            actors = actorsListMapper.mapFromEntityToActorsList(movieDetailsWithActors.actors)
+//        )
 //    }
+
+
 }

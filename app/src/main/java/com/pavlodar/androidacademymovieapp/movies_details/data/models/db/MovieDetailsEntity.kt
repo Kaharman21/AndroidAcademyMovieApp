@@ -8,11 +8,9 @@ import com.pavlodar.androidacademymovieapp.movies_details.data.models.api.GenreD
 
 @Entity(tableName = MOVIES_DETAILS_TABLE_NAME)
 class MovieDetailsEntity (
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "idBd")
-    val idBd: Long = 0,
+    @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: Long,   // adult
+    val id: Long,
     @ColumnInfo(name = "minimumAge")
     val minimumAge: Int,   // adult
     @ColumnInfo(name = "genresName")
