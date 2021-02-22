@@ -9,336 +9,178 @@
 
 
     <ImageView
-        android:id="@+id/activity_movie_details_background_image"
+        android:id="@+id/fragment_movies_details_background_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_activity_movie_details"
+        android:src="@drawable/background_fragment_movies_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
+        android:id="@+id/fragment_movies_details_mask"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/mask_activity_movie_details"
+        android:src="@drawable/mask_fragment_movies_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
-        android:id="@+id/activity_movie_details_play_image_view"
+        android:id="@+id/fragment_movies_details_play_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/play_shape_activity_movie_details"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_movie_details_background_image"
+        android:src="@drawable/play_shape_fragment_movies_details"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_movies_details_background_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
-        android:layout_width="@dimen/activity_movie_details_favourite_width"
-        android:layout_height="@dimen/activity_movie_details_favourite_height"
-        android:layout_marginTop="@dimen/activity_movie_details_favourite_top_margin"
-        android:layout_marginEnd="@dimen/activity_movie_details_middle_margin"
-        android:src="@drawable/favourite_activity_movie_details"
+        android:id="@+id/fragment_movies_details_favorite"
+        android:layout_width="@dimen/favourite_image_width"
+        android:layout_height="@dimen/favourite_image_height"
+        android:layout_marginTop="@dimen/fragment_movies_details_favourite_top_margin"
+        android:layout_marginEnd="@dimen/fragment_movies_details_middle_margin"
+        android:src="@drawable/ic_favorite_empty"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <ImageView
-        android:id="@+id/activity_movie_details_image_back"
-        android:layout_width="@dimen/activity_movie_details_back_img_width"
-        android:layout_height="@dimen/activity_movie_details_back_img_height"
-        android:layout_marginStart="@dimen/activity_movie_details_back_img_margin_start"
-        android:layout_marginTop="@dimen/activity_movie_details_back_img_margin_top"
-        android:src="@drawable/back_icon_activity_movie_details"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
-        android:id="@+id/activity_movie_details_back_text_view"
+        android:id="@+id/fragment_movies_details_back_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_movie_details_back_text_margin"
-        android:text="@string/activity_movie_details_back_text"
-        android:textColor="@color/activity_movie_details_back_text_color"
-        android:textSize="@dimen/activity_movie_details_back_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_movie_details_image_back"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_image_back"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_image_back"
+        android:layout_marginStart="@dimen/fragment_movies_details_back_text_view_start_margin"
+        android:layout_marginTop="@dimen/fragment_movies_details_back_text_view_top_margin"
+        android:text="@string/fragment_movies_details_back_text"
+        android:textColor="@color/fragment_movies_details_back_text_color"
+        android:textSize="@dimen/fragment_movies_details_back_text_size"
+        android:drawablePadding="8dp"
+        android:alpha="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableStartCompat="@drawable/back_icon_fragment_movies_details"
         />
 
     <TextView
-        android:id="@+id/activity_movie_details_age_limitation"
+        android:id="@+id/fragment_movies_details_age_limitation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_movie_details_adult_margin_top"
-        android:text="@string/activity_movie_details_adult_text"
+        android:layout_marginTop="@dimen/fragment_movies_details_adult_top_margin"
+        android:text="@string/fragment_movies_details_adult_text"
         android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_adult_text_size"
+        android:textSize="@dimen/fragment_movies_details_adult_text_size"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_movie_name"
+        app:layout_constraintStart_toStartOf="@+id/fragment_movies_details_movie_title"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
-        android:id="@+id/activity_movie_details_movie_name"
+        android:id="@+id/fragment_movies_details_movie_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/activity_movie_details_middle_margin"
-        android:text="@string/activity_movie_details_movie_name"
+        android:layout_marginHorizontal="@dimen/fragment_movies_details_middle_margin"
         android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_title_text_size"
+        android:textSize="@dimen/fragment_movies_details_title_text_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_movie_details_background_image"
+        tools:text="@string/fragment_movies_details_movie_name"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_movies_details_background_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_background_image"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_background_image"
         />
 
     <TextView
-        android:id="@+id/activity_movie_details_movie_genre"
+        android:id="@+id/fragment_movies_details_movie_genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_genre_text"
-        android:textColor="@color/activity_movie_details_genre_color"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_movie_name"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_movie_name"
+        tools:text="@string/fragment_movies_details_genre_text"
+        android:textColor="@color/fragment_movies_details_genre_color"
+        app:layout_constraintStart_toStartOf="@+id/fragment_movies_details_movie_title"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_movie_title"
         />
 
-    <ImageView
-        android:id="@+id/activity_movie_details_filed_star1"
+    <RatingBar
+        android:id="@+id/fragment_movies_details_rating"
+        style="@style/MyRatingBarForDetails"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_movie_details_start_margin_top"
-        android:src="@drawable/ic_star_filed"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_movie_genre"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_movie_genre"
+        android:layout_height="@dimen/fragment_movies_details_rating_height"
+        android:layout_marginTop="8dp"
+        android:numStars="5"
+        android:rating="0"
+        android:stepSize="0.5"
+        app:layout_constraintStart_toStartOf="@+id/fragment_movies_details_movie_genre"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_movie_genre"
         />
-
-    <ImageView
-        android:id="@+id/activity_movie_details_filed_star2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_movie_details_start_margin_start"
-        android:src="@drawable/ic_star_filed"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_filed_star1"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_filed_star1"
-        />
-
-    <ImageView
-        android:id="@+id/activity_movie_details_filed_star3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_movie_details_start_margin_start"
-        android:src="@drawable/ic_star_filed"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_filed_star2"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_filed_star2"
-        />
-
-    <ImageView
-        android:id="@+id/activity_movie_details_filed_star4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_movie_details_start_margin_start"
-        android:src="@drawable/ic_star_filed"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_filed_star3"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_filed_star3"
-        />
-
-    <ImageView
-        android:id="@+id/activity_movie_details_empty_star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_movie_details_start_margin_start"
-        android:src="@drawable/ic_star_empty"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_filed_star4"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_filed_star4"
-        />
-
 
     <TextView
-        android:id="@+id/activity_movie_details_storyline_title"
+        android:id="@+id/fragment_movies_details_storyline_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_movie_details_storyline_title_margin_top"
-        android:text="@string/activity_movie_details_storyline_title"
+        android:layout_marginTop="@dimen/fragment_movies_details_storyline_title_top_margin"
+        android:text="@string/fragment_movies_details_storyline_title"
         android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_adult_text_size"
+        android:textSize="@dimen/fragment_movies_details_adult_text_size"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_movie_name"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_filed_star1"
+        app:layout_constraintStart_toStartOf="@+id/fragment_movies_details_movie_title"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_rating"
         />
 
     <TextView
-        android:id="@+id/activity_movie_details_storyline_text"
+        android:id="@+id/fragment_movies_details_storyline_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_movie_details_storyline_text_margin_top"
-        android:text="@string/activity_movie_details_storyline_text"
+        android:layout_marginTop="@dimen/fragment_movies_details_storyline_text_top_margin"
+        tools:text="@string/fragment_movies_details_storyline_text"
         android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_adult_text_size"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_movie_name"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_storyline_title"
+        android:textSize="@dimen/fragment_movies_details_adult_text_size"
+        app:layout_constraintStart_toStartOf="@+id/fragment_movies_details_movie_title"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_storyline_title"
         />
 
     <TextView
-        android:id="@+id/activity_movie_details_cast_title"
+        android:id="@+id/fragment_movies_details_cast_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/app_margin"
-        android:layout_marginTop="@dimen/activity_movie_details_cast_top_margin"
-        android:text="@string/activity_movie_details_cast_text_view"
+        android:layout_marginStart="@dimen/fragment_movies_details_cast_start_margin"
+        android:layout_marginTop="@dimen/fragment_movies_details_cast_top_margin"
+        android:text="@string/fragment_movies_details_cast_text_view"
         android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_adult_text_size"
+        android:textSize="@dimen/fragment_movies_details_adult_text_size"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_see_all_title"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_movies_details_see_all_title"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_storyline_text"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_storyline_text"
         />
 
     <TextView
-        android:id="@+id/activity_movie_details_see_all_title"
+        android:id="@+id/fragment_movies_details_see_all_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/app_margin"
-        android:text="@string/activity_movie_details_see_all_text_view"
+        android:layout_marginEnd="@dimen/fragment_movies_details_cast_start_margin"
+        android:text="@string/fragment_movies_details_see_all_text_view"
         android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_adult_text_size"
+        android:textSize="@dimen/fragment_movies_details_adult_text_size"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_cast_title"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_cast_title"
+        app:layout_constraintStart_toEndOf="@+id/fragment_movies_details_cast_title"
+        app:layout_constraintTop_toTopOf="@+id/fragment_movies_details_cast_title"
         />
 
-    <ImageView
-        android:id="@+id/activity_movie_details_first_actor_photo"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_movies_details_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_movie_details_actor_photo_top_margin"
-        android:src="@drawable/robert_downey"
-        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_second_actor_photo"
+        android:layout_marginTop="@dimen/view_holder_actor_photo_top_margin"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_cast_title"
-        />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_first_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="activity_movie_details_first_actor_photo"
-        />
-
-    <ImageView
-        android:id="@+id/activity_movie_details_second_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chris_evans"
-        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_third_actor_photo"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_first_actor_photo"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_first_actor_photo"
-        />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_second_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="activity_movie_details_second_actor_photo"
-        />
-
-    <ImageView
-        android:id="@+id/activity_movie_details_third_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/mark_ruffalo"
-        app:layout_constraintEnd_toStartOf="@+id/activity_movie_details_fourth_actor_photo"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_second_actor_photo"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_second_actor_photo"
-        />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_third_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="activity_movie_details_third_actor_photo"
-        />
-
-    <ImageView
-        android:id="@+id/activity_movie_details_fourth_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chris_hemsworth"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/activity_movie_details_third_actor_photo"
-        app:layout_constraintTop_toTopOf="@+id/activity_movie_details_third_actor_photo"
-        />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_fourth_actor_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="activity_movie_details_fourth_actor_photo"
-        />
-
-    <TextView
-        android:id="@+id/activity_movie_details_first_actor_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_first_actor_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_actor_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/barrier_first_actor_photo"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_first_actor_photo"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_first_actor_photo"
-        />
-
-    <TextView
-        android:id="@+id/activity_movie_details_second_actor_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_second_actor_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_actor_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/barrier_second_actor_photo"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_second_actor_photo"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_second_actor_photo"
-        />
-
-    <TextView
-        android:id="@+id/activity_movie_details_third_actor_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_third_actor_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_actor_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/barrier_third_actor_photo"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_third_actor_photo"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_third_actor_photo"
-        />
-
-    <TextView
-        android:id="@+id/activity_movie_details_fourth_actor_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_movie_details_fourth_actor_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/activity_movie_details_actor_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/barrier_fourth_actor_photo"
-        app:layout_constraintStart_toStartOf="@+id/activity_movie_details_fourth_actor_photo"
-        app:layout_constraintTop_toBottomOf="@+id/activity_movie_details_fourth_actor_photo"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movies_details_cast_title"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
