@@ -8,6 +8,7 @@ import com.pavlodar.androidacademymovieapp.movies_list.data.models.GenreData
 import com.pavlodar.androidacademymovieapp.movies_list.data.models.MovieData
 import com.pavlodar.androidacademymovieapp.common.utils.mappers.MoviesListMapper
 import com.pavlodar.androidacademymovieapp.common.data.data_source.MoviesDataBase
+import com.pavlodar.androidacademymovieapp.common.extensions.showToast
 import kotlinx.coroutines.*
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -41,6 +42,16 @@ class MoviesListRepository(
                 fail(e.localizedMessage)
             }
         }
+    }
+
+    suspend fun updateMoviesListInDb() = withContext(Dispatchers.IO){
+        deleteAllFromMoviesList()
+        val moviesListFromApi = loadDataFromApi()
+        saveMoviesListToDb(moviesListFromApi)
+    }
+
+    private suspend fun deleteAllFromMoviesList() = withContext(Dispatchers.IO){
+        moviesListDb.moviesDao.deleteAllFromMoviesList()
     }
 
     private suspend fun loadDataFromApi(): List<MovieData> = withContext(Dispatchers.IO) {
